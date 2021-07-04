@@ -4,15 +4,22 @@ const cors = require('cors')
 
 const { initializeDB } = require('./db/db.connect.js')
 const { errorHandler, routeNotFound } = require('./middlewares/index')
+const {login,signUp,quiz} = require("./routes/index")
 
-const PORT = process.env.PORT || 3020
+//assigning port
+const PORT = process.env.PORT || 3021
 
 //connection to DB
 initializeDB()
 
+//for parsing body into json
 app.use(express.json())
+
 app.use(cors())
 
+app.use('/login', login)
+app.use('/signup', signUp)
+app.use('/quiz', quiz)
 
 app.get('/', (request, response) => {
   response.send('Hello World!')
