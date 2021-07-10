@@ -22,7 +22,7 @@ app.use('/signup', signUp)
 app.use('/quiz', quiz)
 
 app.get('/', (request, response) => {
-  response.send('Hello World!')
+  response.send('Welcome to skills mania REST API!')
 })
 
 // Don't move it
